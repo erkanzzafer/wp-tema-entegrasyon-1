@@ -42,4 +42,10 @@ wp_enqueue_script('scripts');
 }
 add_action('wp_enqueue_scripts','add_js');
 
+//Görünüm - Menüler 
+add_theme_support('menus');
+register_nav_menus(array(
+	'ust-menu' =>__('Üst Menü','theme')
+));
+
 ?>
