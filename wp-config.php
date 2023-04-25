@@ -80,7 +80,7 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
-
+@ini_set ('upload_max_size', '512');
 /* Her türlü özel değeri bu satı ile "Hepsi bu kadar" yazan satır arasına ekleyebilirsiniz. */
 
 

@@ -5,9 +5,19 @@
                 <div class="dplay-tbl">
                         <div class="dplay-tbl-cell center-text color-white">
 
-                                <h5><b>BEST IN TOWN</b></h5>
-                                <h1 class="mt-30 mb-15">Pizza & Pasta</h1>
-                                <h5><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h5>
+<?php
+$giris_alani = get_field('giris_alani');
+?>
+
+
+
+
+                                <h5><b><?php echo $giris_alani['slogan']; ?></b></h5>
+                                <h1 class="mt-30 mb-15"><?php echo $giris_alani['baslik']; ?></h1>
+
+                                <?php if ($giris_alani['link']) : ?>
+                                <h5><a href="<?php echo $giris_alani['link']; ?>" class="btn-primaryc plr-25"><b><?php echo $giris_alani['link_adi']; ?></b></a></h5>
+                        <?php endif ?>
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
         </div><!-- container -->
@@ -20,29 +30,16 @@
         <div class="container">
                 <div class="heading">
                         <img class="heading-img" src="<?php bloginfo('template_url'); ?>/images/heading_logo.png" alt="">
-                        <h2>Our Story</h2>
+                        <h2>Hikayemiz</h2>
                 </div>
-
+<?php $hikayemiz = get_field('hikayemiz'); ?>
                 <div class="row">
                         <div class="col-md-6">
-                                <p class="mb-30">Maecenas fermentum tortor id fringilla molestie. In hac habitasse
-                                        platea dictumst. Morbi maximus
-                                        lobortis ipsum, ut blandit augue ullamcorper vitae.
-                                        Nulla dignissim leo felis, eget cursus elit aliquet ut. Curabitur vel convallis
-                                        massa. Morbi tellus
-                                        tortor, luctus et lacinia non, tincidunt in lacus.
-                                        Vivamus sed ligula imperdiet, feugiat magna vitae, blandit ex. Vestibulum id
-                                        dapibus dolor, ac
-                                        cursus nulla. </p>
+                                <p class="mb-30"><?php echo $hikayemiz['sol_taraf']; ?></p>
                         </div><!-- col-md-6 -->
 
                         <div class="col-md-6">
-                                <p class="mb-30">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea
-                                        dictumst.Morbi maximus lobortis ipsum, ut blandit augue ullamcorper vitae.
-                                        Nulla dignissim leo felis, eget cursus elit aliquet ut. Curabitur vel
-                                        convallismassa. Morbi tellus tortor, luctus et lacinia non, tincidunt in lacus.
-                                        Vivamus sed ligula imperdiet, feugiat magna vitae, blandit ex. Vestibulumidda
-                                        pibus dolor, accursus nulla. </p>
+                                <p class="mb-30"><?php echo $hikayemiz['sag_taraf']; ?></p>
                         </div><!-- col-md-6 -->
                 </div><!-- row -->
         </div><!-- container -->

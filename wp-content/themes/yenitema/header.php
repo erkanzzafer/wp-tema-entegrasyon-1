@@ -10,7 +10,7 @@
        
 
         
-<?php wp_head(); ?>989
+<?php wp_head(); ?>
 </head>
 <body>
 
