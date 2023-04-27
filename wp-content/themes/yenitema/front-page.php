@@ -93,100 +93,61 @@ $giris_alani = get_field('giris_alani');
         <div class="container">
                 <div class="heading">
                         <img class="heading-img" src="<?php bloginfo('template_url'); ?>/images/heading_logo.png" alt="">
-                        <h2>Our Menu</h2>
+                        <h2>Menu</h2>
                 </div>
 
                 <div class="row">
                         <div class="col-sm-12">
                                 <ul class="selecton brdr-b-primary mb-70">
                                         <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
-                                        <li><a href="#" data-select="pizza"><b>PIZZA</b></a></li>
-                                        <li><a href="#" data-select="pasta"><b>PASTA</b></a></li>
-                                        <li><a href="#" data-select="salads"><b>SALADS</b></a></li>
-                                        <li><a href="#" data-select="deserts"><b>DESERTS</b></a></li>
+
+                                        <?php if (have_rows('pizza_menu')) : ?>
+                                                <?php while (have_rows('pizza_menu')): the_row();
+                                                        $kategori_adi=get_sub_field('kategori_adi');
+                                        ?>
+
+                                        <li><a href="#" data-select="<?php echo sanitize_title($kategori_adi); ?>"><b><?php echo $kategori_adi; ?></b></a></li>
+                                               
+                                        <?php endwhile; ?>
+                                <?php endif ?>
+
                                 </ul>
                         </div><!--col-sm-12-->
                 </div><!--row-->
 
                 <div class="row">
-                        <div class="col-md-6 food-menu pizza">
+
+
+                                        <?php if (have_rows('pizza_menu')) : ?>
+                                                <?php while (have_rows('pizza_menu')): the_row();
+                                                        $kategori_adi=get_sub_field('kategori_adi');
+                                        ?>
+
+                        <div class="col-md-6 food-menu <?php echo sanitize_title($kategori_adi); ?>">
+
+                                        <?php if (have_rows('urunler')) : ?>
+                                                <?php while (have_rows('urunler')): the_row();
+                                                        $urun_resmi=get_sub_field('urun_resmi');
+                                                        $aciklama=get_sub_field('aciklama');
+                                                        $urun_adi=get_sub_field('urun_adi');
+                                                        $fiyat=get_sub_field('fiyat');
+                                        ?>
+
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-1-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" src="<?php echo $urun_resmi; ?>" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>Pizza Margherita</b><b class="color-primary float-right">$12.00</b></h5>
-                                                <p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
+                                                <h5 class="mb-10"><b><?php echo $urun_adi; ?></b><b class="color-primary float-right"><?php echo $fiyat; ?></b></h5>
+                                                <p class="pr-70"><?php echo $aciklama; ?></p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
 
-                        <div class="col-md-6 food-menu pizza pasta">
-                                <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-2-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Italian pasta</b><b class="color-primary float-right">$20.00</b></h5>
-                                                <p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
+                                <?php endwhile; ?>
+                                <?php endif ?>
 
-                        <div class="col-md-6 food-menu pasta">
-                                <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-3-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Pizza Prosciuto</b><b class="color-primary float-right">$12.00</b></h5>
-                                                <p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
                         </div><!-- food-menu -->
-
-                        <div class="col-md-6 food-menu salads">
-                                <div class="sided-90x mb-30">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-4-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Broschettas</b><b class="color-primary float-right">$6.00</b></h5>
-                                                <p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
-                        <div class="col-md-6 food-menu deserts">
-                                <div class="sided-90x mb-30">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-5-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Pizza Margherita</b><b class="color-primary float-right">$12.00</b></h5>
-                                                <p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
-
-                        <div class="col-md-6 food-menu pizza">
-                                <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-6-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Italian pasta</b><b class="color-primary float-right">$20.00</b></h5>
-                                                <p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
-
-                        <div class="col-md-6 food-menu deserts">
-                                <div class="sided-90x mb-30">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-7-120x120.jpg"  alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Pizza Prosciuto</b><b class="color-primary float-right">$12.00</b></h5>
-                                                <p class="pr-70">Maecenas fermentum tortor id fringilla  molestie. In hac habitasse platea dictumst. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
-
-                        <div class="col-md-6 food-menu pasta">
-                                <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="<?php bloginfo('template_url'); ?>/images/menu-8-120x120.jpg" alt="Menu Image"></div><!--s-left-->
-                                        <div class="s-right">
-                                                <h5 class="mb-10"><b>Broschettas</b><b class="color-primary float-right">$6.00</b></h5>
-                                                <p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
-                                        </div><!--s-right-->
-                                </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
+                                  <?php endwhile; ?>
+                                <?php endif ?>
+                       
                 </div><!-- row -->
 
                 <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h6>
